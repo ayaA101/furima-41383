@@ -13,8 +13,7 @@ class User < ApplicationRecord
 
   with_options presence: true do
     validates :nickname
-    validates :email
-    validates :encrypted_password, format: { with: PASSWORD_REGEX }
+    validates :password, format: { with: PASSWORD_REGEX }
     validates :last_name, format: { with: PASSWORD_REGEX_ZENKAKU }
     validates :first_name, format: { with: PASSWORD_REGEX_ZENKAKU }
     validates :last_name_kana, format: { with: PASSWORD_REGEX_KATAKANA }
