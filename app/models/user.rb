@@ -8,8 +8,8 @@ class User < ApplicationRecord
   has_many :orders, through: :items
 
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
-  PASSWORD_REGEX_ZENKAKU = /\A[ぁ-んァ-ン一-龥]+\z/.freeze
-  PASSWORD_REGEX_KATAKANA = /\A[ァ-ヶー－]+\z/.freeze
+  PASSWORD_REGEX_ZENKAKU = /\A[ぁ-んァ-ヶ一-龥々ー]+\z/.freeze
+  PASSWORD_REGEX_KATAKANA = /\A[ァ-ヶー]+\z/.freeze
 
   with_options presence: true do
     validates :nickname
