@@ -1,4 +1,4 @@
-class Quality < ActiveHash::Base
+class ItemInfo < ActiveHash::Base
 
   self.data = [
     { id: 1, name: '--' },

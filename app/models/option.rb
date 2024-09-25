@@ -1,4 +1,4 @@
-class Payment < ActiveHash::Base
+class Option < ActiveHash::Base
  
   self.data = [
     { id: 1, name: '--' },
