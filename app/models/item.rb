@@ -6,7 +6,7 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   belongs_to :schedule
   validates :image, :item_name, :item_info, :item_category_id, :item_status_id, :option_id, :prefecture_id, :schedule_id, :price, presence: true
-  validates :price, numericality: { less_than: 9_999_999, greater_than: 300 }
+  validates :price, numericality: { only_integer: true, less_than: 9_999_999, greater_than: 300 }
 
   with_options numericality: { other_than: 1 , message: "can't be blank"} do
     validates :item_category_id
