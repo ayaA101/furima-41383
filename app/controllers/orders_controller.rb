@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
 
   def index
     @orderrecord = OrderRecord.new
-    if current_user.id == @item.user_id || @item.shopping_address != nil
+    if current_user.id == @item.user_id 
       return redirect_to root_path
     end   
   end  
@@ -15,7 +15,7 @@ class OrdersController < ApplicationController
        @orderrecord.save(params,current_user.id)
          redirect_to root_path
     else
-         render :index
+         render :index, status: :unprocessable_entity
     end
   end
 
