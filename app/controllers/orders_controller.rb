@@ -13,7 +13,7 @@ class OrdersController < ApplicationController
   def create
     @order_record = OrderRecord.new(order_params)
     if @order_record.valid?
-       @order_record.save(params,current_user.id)
+       @order_record.save
          redirect_to root_path
     else
          render :index, status: :unprocessable_entity
