@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_10_07_085455) do
+ActiveRecord::Schema[7.0].define(version: 2024_10_09_102738) do
   create_table "active_storage_attachments", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -63,6 +63,19 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_07_085455) do
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
+  create_table "shopping_addresses", charset: "utf8", force: :cascade do |t|
+    t.string "postalcode", null: false
+    t.integer "prefecture_id", null: false
+    t.string "city", null: false
+    t.string "addresses", null: false
+    t.string "building"
+    t.string "phonenumber", null: false
+    t.bigint "order_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_shopping_addresses_on_order_id"
+  end
+
   create_table "users", charset: "utf8", force: :cascade do |t|
     t.string "nickname", null: false
     t.string "email", default: "", null: false
@@ -86,4 +99,5 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_07_085455) do
   add_foreign_key "items", "users"
   add_foreign_key "orders", "items"
   add_foreign_key "orders", "users"
+  add_foreign_key "shopping_addresses", "orders"
 end
