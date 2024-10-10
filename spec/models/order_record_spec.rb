@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe OrderRecord, type: :model do
   before do
     @user = FactoryBot.create(:user)
-    @item = FactoryBot.build(:item)
-    @order_record = FactoryBot.build(:order_record, user_id: @user.id, item_id: [@item.id])
+    @item = FactoryBot.create(:item)
+    @order_record = FactoryBot.create(:order_record, user_id: @user.id, item_id: [@item.id])
     end  
   describe '商品購入機能' do
     context '商品を購入できる場合' do
