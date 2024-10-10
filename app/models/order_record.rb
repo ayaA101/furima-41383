@@ -1,6 +1,6 @@
 class OrderRecord
   include ActiveModel::Model
-  attr_accessor :user_id, :item_id, :postalcode, :prefecture_id, :city, :addresses, :building, :phonenumber
+  attr_accessor :token, :user_id, :item_id, :postalcode, :prefecture_id, :city, :addresses, :building, :phonenumber
 
   with_options presence: true do
     validates :user_id
@@ -10,6 +10,7 @@ class OrderRecord
     validates :city
     validates :addresses
     validates :phonenumber, format: { with: /\A\d{10,11}\z/,message: "is invalid."}
+    validates :token
   end
 
   def save

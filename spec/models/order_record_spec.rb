@@ -9,7 +9,6 @@ RSpec.describe OrderRecord, type: :model do
   describe '商品購入機能' do
     context '商品を購入できる場合' do
       it 'すべての値が正しく入力されていれば保存できること' do
-        
         expect(@order_record).to be_valid
       end
       
@@ -92,6 +91,11 @@ RSpec.describe OrderRecord, type: :model do
         expect(@order_record.errors.full_messages).to include("Item can't be blank")
       end              
       
+      it "tokenが空では登録できないこと" do
+        @order_record.token = nil
+        @order_record.valid?
+        expect(@order_record.errors.full_messages).to include("Token can't be blank")
+      end
     end
   end
 end
