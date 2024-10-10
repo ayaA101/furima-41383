@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
   def index
     gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
     @order_record = OrderRecord.new
-    if current_user.id == @item.user_id 
+    if current_user.id == @item.user_id || @item.order != nil
       return redirect_to root_path
     end   
   end  
